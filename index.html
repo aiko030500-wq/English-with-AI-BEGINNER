@@ -628,24 +628,28 @@
 /* ---------- CLASS RANGES (PIN) ---------- */
 
 const classRanges = [
-  { cls: "3E", from: 101, to: 115 },
-  { cls: "4G", from: 201, to: 215 },
-  { cls: "5G", from: 301, to: 315 },
-  { cls: "5Zh", from: 401, to: 415 },
-  { cls: "6G", from: 501, to: 515 },
-  { cls: "7B", from: 601, to: 615 },
-  { cls: "7V", from: 701, to: 715 },
-  { cls: "8E", from: 801, to: 815 },
-  { cls: "9Zh", from: 901, to: 915 },
-  { cls: "10A", from: 1001, to: 1015 },
+  { cls: "3E",  from: 101,  to: 115 },
+  { cls: "4G",  from: 201,  to: 215 },
+  { cls: "5G",  from: 301,  to: 315 },
+  { cls: "5Zh", from: 401,  to: 415 },
+  { cls: "6G",  from: 501,  to: 515 },
+  { cls: "7B",  from: 601,  to: 615 },
+  { cls: "7V",  from: 701,  to: 715 },
+  { cls: "8E",  from: 801,  to: 815 },
+  { cls: "9Zh", from: 901,  to: 915 },
+  { cls: "10A", from: 1001, to: 1015 }
 ];
 
 function getClassByCode(num){
-  for(const r of classRanges){
-    if(num>=r.from && num<=r.to) return r.cls;
+  for (const r of classRanges){
+    if (num >= r.from && num <= r.to){
+      return r.cls;
+    }
   }
   return null;
 }
+
+/* ---------- TOPIC COLORS ---------- */
 
 const topicColors = {
   1:  "#FF7A00",
@@ -669,7 +673,7 @@ const topicColors = {
   19: "#0B6623",
   20: "#B22222"
 };
-
+    
 /* ---------- TOPICS DATA (1–7 заполнены) ---------- */
 
 const topics = [
