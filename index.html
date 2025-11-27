@@ -3017,6 +3017,15 @@ function renderTeacherTable(){
 /* ---------- INIT ---------- */
 
 showOnly("loginScreen");
+  /* ----------- FIX: ADD updateTopStars FUNCTION ----------- */
+function updateTopStars() {
+  const topStars = document.getElementById("topStars");
+  if (!topStars) return;
+
+  const stars = localStorage.getItem("stars") || 0;
+  topStars.textContent = "Stars: " + stars;
+}
+
 </script>
 </body>
 </html>
