@@ -627,28 +627,7 @@
   <script>
 /* ---------- CLASS RANGES (PIN) ---------- */
 
-const classRanges = [
-  { cls: "3E",  from: 101,  to: 115 },
-  { cls: "4G",  from: 201,  to: 215 },
-  { cls: "5G",  from: 301,  to: 315 },
-  { cls: "5Zh", from: 401,  to: 415 },
-  { cls: "6G",  from: 501,  to: 515 },
-  { cls: "7B",  from: 601,  to: 615 },
-  { cls: "7V",  from: 701,  to: 715 },
-  { cls: "8E",  from: 801,  to: 815 },
-  { cls: "9Zh", from: 901,  to: 915 },
-  { cls: "10A", from: 1001, to: 1015 }
-];
-
-function getClassByCode(num){
-  for (const r of classRanges){
-    if (num >= r.from && num <= r.to){
-      return r.cls;
-    }
-  }
-  return null;
- }
-    const topicColors = {
+const topicColors = {
   1: "#FF7A00",  // оранжевый
   2: "#FF2400",  // красный алый
   3: "#2ECC71",  // зеленый
@@ -667,9 +646,27 @@ function getClassByCode(num){
   16:"#4C5866",  // маренго
   17:"#0A5C5A",  // мурена
   18:"#8E4585",  // сливовый
-  19:"#0B6623",  // темно зеленый
+  19:"#0B6623",  // темно-зеленый
   20:"#B22222"   // кирпичный
 };
+
+function getClassByCode(num){
+  for (const r of classRanges){
+    if (num >= r.from && num <= r.to){
+      return r.cls;
+    }
+  }
+  return null;
+ }
+    const topicColors = {
+  1: "#FF7A00",  // оранжевый
+  2: "#FF2400",  // красный алый
+  3: "#2ECC71",  // зеленый
+  4: "#FF00A8",  // фуксия
+  5: "#8B4513",  // коричневый
+  6: "#007BFF",  // синий
+  7: "#FFD500",  // желтый
+ 
        
 /* ---------- TOPICS DATA (1–7 заполнены) ---------- */
 
