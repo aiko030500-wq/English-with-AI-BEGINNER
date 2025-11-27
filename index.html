@@ -228,7 +228,7 @@
       color:#607080;
     }
 
-    /* AI PANEL (пока демо, без реального ИИ) */
+    /* AI PANEL (demo) */
     #aiPanel{
       background:#fff;
       border-radius:14px;
@@ -290,7 +290,6 @@
     }
 
     /* TOPIC SCREEN */
-
     #topicScreen{
       max-width:1000px;
       margin:0 auto;
@@ -448,7 +447,6 @@
     }
 
     /* TEACHER */
-
     #teacherScreen{
       margin-top:20px;
     }
@@ -478,7 +476,7 @@
       font-weight:600;
     }
 
-    /* ПЕЧАТЬ: только тема */
+    /* PRINT: only topic */
     @media print{
       header, #loginScreen, #mainMenuScreen, #teacherScreen{
         display:none !important;
@@ -519,12 +517,10 @@
     </p>
 
     <label class="field-label" for="loginName">Name</label>
-    <input id="loginName" class="text-input" type="text"
-           placeholder="Your name" />
+    <input id="loginName" class="text-input" type="text" placeholder="Your name" />
 
     <label class="field-label" for="loginCode">Code</label>
-    <input id="loginCode" class="text-input" type="password"
-           placeholder="Student or teacher code" />
+    <input id="loginCode" class="text-input" type="password" placeholder="Student or teacher code" />
 
     <div style="display:flex;gap:8px;margin-top:4px">
       <button class="btn btn-primary" onclick="handleLogin()">Login</button>
@@ -533,7 +529,8 @@
 
     <div id="loginError" class="error hidden"></div>
   </section>
-    <!-- MAIN MENU (STUDENT) -->
+
+  <!-- MAIN MENU (STUDENT) -->
   <section id="mainMenuScreen" class="hidden">
     <section class="card">
       <div class="top-row">
@@ -567,7 +564,8 @@
 
       <div>
         <textarea id="aiQuestion"
-                  placeholder="AI chat will be available soon." disabled></textarea>
+                  placeholder="AI chat will be available soon."
+                  disabled></textarea>
         <div class="chat-actions">
           <button class="btn btn-primary" id="askBtn" disabled>Ask (soon)</button>
         </div>
@@ -624,7 +622,8 @@
     </div>
   </section>
 </main>
-  <script>
+
+<script>
 /* ---------- CLASS RANGES (PIN) ---------- */
 
 const classRanges = [
@@ -898,11 +897,197 @@ const topics = [
     ]
   },
 
-  /* ==== 3–7, заглушки 8–20 остаются как у тебя ==== */
+  /* ===== 3. ARTICLES ===== */
+  {
+    id:3,
+    title:"Articles (a / an / the)",
+    level:"Beginner",
+    explanation:"We use a/an with singular countable nouns, the when the listener knows which thing we mean, and no article (∅) for general ideas or plurals.",
+    ruleRu:"<b>Артикли a / an / the</b> ставятся перед существительными.",
+    usageRu:`
+      <b>a</b> – перед словом, начинающимся с согласного звука: a bag, a pen.<br>
+      <b>an</b> – перед гласным звуком: an apple, an orange.<br>
+      <b>the</b> – когда предмет уже известен, уникален или мы уточняем: the sun, the teacher.<br>
+      <b>Без артикля (∅)</b> – перед существительными во множественном числе и неисчисляемыми, когда говорим вообще: I like apples. Milk is healthy.
+    `,
+    formulas:[
+      "a + consonant sound: a cat",
+      "an + vowel sound: an apple",
+      "the + specific thing",
+      "∅ + plural / uncountable"
+    ],
+    examples:[
+      "This is a cat. The cat is black.",
+      "I have an orange.",
+      "She likes milk. Milk is cold."
+    ],
+    exercises:[
+      {
+        title:"Ex.1 – Choose a or an.",
+        questions:[
+          {text:"___ apple", options:["a","an","the"], correct:1},
+          {text:"___ orange", options:["a","an","the"], correct:1},
+          {text:"___ bag", options:["a","an","the"], correct:0},
+          {text:"___ egg", options:["a","an","the"], correct:1},
+          {text:"___ umbrella", options:["a","an","the"], correct:1}
+        ]
+      }
+    ]
+  },
 
-  /* ... твои темы 3–7 ... */
+  /* ===== 4. PRESENT SIMPLE ===== */
+  {
+    id:4,
+    title:"Present Simple",
+    level:"Beginner",
+    explanation:"We use Present Simple to talk about routines, habits, facts and permanent situations.",
+    ruleRu:"<b>Present Simple</b> — время для привычек, распорядка, регулярных действий, фактов.",
+    usageRu:`
+      <b>Когда используем:</b><br>
+      1) Привычки: I get up at 7.<br>
+      2) Расписание: School starts at 8:00.<br>
+      3) Факты: Water boils at 100°C.<br>
+      he/she/it + V-s, остальные без -s.
+    `,
+    formulas:["I play","He plays","Do you play?","She doesn’t play"],
+    examples:["I go to school every day.","She likes English.","We don't watch TV at night."],
+    exercises:[
+      {
+        title:"Ex.1 – Choose the correct verb form.",
+        questions:[
+          {text:"I ___ to school every day.", options:["go","goes"], correct:0},
+          {text:"She ___ breakfast at 7.", options:["has","have"], correct:0},
+          {text:"They ___ in Aktau.", options:["live","lives"], correct:0},
+          {text:"He ___ football on Sundays.", options:["plays","play"], correct:0},
+          {text:"My sister ___ very hard.", options:["studies","study"], correct:0}
+        ]
+      }
+    ]
+  },
 
-  /* ===== 8–20: заглушки ===== */
+  /* ===== 5. CAN / CAN'T ===== */
+  {
+    id:5,
+    title:"Can / can't",
+    level:"Beginner",
+    explanation:"We use can to talk about ability and possibility. We use can't to say that something is not possible.",
+    ruleRu:"<b>Can / can't</b> – уметь, мочь.",
+    usageRu:`
+      <b>Утвердительные:</b> S + can + V – I can swim.<br>
+      <b>Отрицание:</b> S + can't + V – She can't drive.<br>
+      <b>Вопрос:</b> Can + S + V? – Can you help me?
+    `,
+    formulas:[
+      "I can swim.",
+      "She can speak English.",
+      "He can't sing.",
+      "Can they help you?"
+    ],
+    examples:[
+      "I can play the guitar.",
+      "They can't speak French.",
+      "Can you ride a bike?"
+    ],
+    exercises:[
+      {
+        title:"Ex.1 – can / can't.",
+        questions:[
+          {text:"I ___ ride a bike.", options:["can","can't"], correct:0},
+          {text:"She ___ swim very well.", options:["can","can't"], correct:0},
+          {text:"They ___ speak Chinese.", options:["can","can't"], correct:1},
+          {text:"My little brother ___ read.", options:["can","can't"], correct:1},
+          {text:"We ___ play football after school.", options:["can","can't"], correct:0}
+        ]
+      }
+    ]
+  },
+
+  /* ===== 6. THERE IS / THERE ARE ===== */
+  {
+    id:6,
+    title:"There is / There are",
+    level:"Beginner",
+    explanation:"We use there is / there are to say that something exists in a place.",
+    ruleRu:"<b>There is / There are</b> – «есть, имеется».",
+    usageRu:`
+      <b>There is</b> + ед.ч. / неисчисл.: There is a book on the table.<br>
+      <b>There are</b> + мн.ч.: There are three books on the table.<br>
+      Отрицание: There isn't / There aren't.<br>
+      Вопрос: Is there...? / Are there...?
+    `,
+    formulas:[
+      "There is a cat in the room.",
+      "There are two chairs in the kitchen.",
+      "Is there a park near here?",
+      "There aren't any apples."
+    ],
+    examples:[
+      "There is a big window in my room.",
+      "There are many students in the classroom.",
+      "Is there a bank near your house?"
+    ],
+    exercises:[
+      {
+        title:"Ex.1 – there is / there are.",
+        questions:[
+          {text:"___ a book on the table.", options:["There is","There are"], correct:0},
+          {text:"___ two cats in the garden.", options:["There is","There are"], correct:1},
+          {text:"___ a teacher in the classroom.", options:["There is","There are"], correct:0},
+          {text:"___ three windows in my room.", options:["There is","There are"], correct:1},
+          {text:"___ some milk in the fridge.", options:["There is","There are"], correct:0}
+        ]
+      }
+    ]
+  },
+
+  /* ===== 7. PRONOUNS & POSSESSIVE ADJECTIVES ===== */
+  {
+    id:7,
+    title:"Pronouns & Possessive Adjectives (my / your / his / her / our / their)",
+    level:"Beginner",
+    explanation:"Possessive adjectives show who something belongs to. They always go before a noun.",
+    ruleRu:`<b>Притяжательные прилагательные</b> показывают, кому что принадлежит.<br>
+      Используются <b>только перед существительным</b>: my book, her name, their school.<br>
+      <b>my – мой, your – твой/ваш, his – его, her – её, its – его (предмета/животного), our – наш, their – их</b>.`,
+    usageRu:`
+      Используем, когда говорим <b>чей предмет</b> или <b>чей человек</b>:<br>
+      • This is <b>my</b> bag. – Это моя сумка.<br>
+      • That is <b>his</b> sister. – Это его сестра.<br>
+      • These are <b>their</b> books. – Это их книги.
+    `,
+    formulas:[
+      "my / your / his / her / its / our / their + noun"
+    ],
+    examples:[
+      "This is my school.",
+      "His name is Arman.",
+      "Their house is big."
+    ],
+    exercises:[
+      {
+        title:"Ex.1 – Choose the correct option.",
+        questions:[
+          {text:"This is ___ book.", options:["my","his","their"], correct:0},
+          {text:"That is ___ sister.", options:["her","their","its"], correct:0},
+          {text:"These are ___ bags.", options:["our","my","its"], correct:0},
+          {text:"He loves ___ dog.", options:["your","her","his"], correct:2},
+          {text:"They’re in ___ classroom.", options:["their","its","my"], correct:0}
+        ]
+      },
+      {
+        title:"Ex.2 – Fill in (choose).",
+        questions:[
+          {text:"Aika and I live with ___ parents.", options:["our","their","his"], correct:0},
+          {text:"Aruzhan is talking to ___ friend Dana.", options:["my","her","their"], correct:1},
+          {text:"The dog is eating ___ food.", options:["its","his","their"], correct:0},
+          {text:"This is ___ new backpack.", options:["my","your","her"], correct:2},
+          {text:"Is this ___ phone?", options:["your","its","our"], correct:0}
+        ]
+      }
+    ]
+  },
+
+  /* ===== 8–20: заглушки, чтобы код был цельный ===== */
   ...Array.from({length:13},(_,i)=>({
     id:8+i,
     title:`Topic ${8+i} – coming soon`,
@@ -1053,7 +1238,7 @@ function buildMainMenu(){
     grid.appendChild(div);
   });
 
-  // простое сообщение в DEMO AI
+  // demo message in AI panel
   const chat = document.getElementById("chatBox");
   chat.innerHTML = "";
   const msg = document.createElement("div");
