@@ -576,7 +576,7 @@
     </aside>
   </section>
 
-  <!-- TOPIC SCREEN -->
+    <!-- TOPIC SCREEN -->
   <section id="topicScreen" class="hidden">
     <div class="topic-header">
       <div class="topic-header-main">
@@ -592,6 +592,7 @@
     <div class="topic-body">
       <div id="topicRuleContainer"></div>
       <div id="topicExercisesContainer"></div>
+      <div id="topicStatus" class="muted" style="margin-top:8px;"></div>
     </div>
   </section>
 
@@ -1377,21 +1378,10 @@ function backToMenu(){
 }
 
 function printCurrentTopic(){
-  if(!currentTopicId){
-    alert("Open a topic first.");
-    return;
-  }
+  // Кнопка печати есть только внутри темы,
+  // поэтому просто запускаем печать
+  if(!currentTopicId) return;
   window.print();
-}
-
-function updateTopStars(){
-  const el = document.getElementById("topStars");
-  const ms = document.getElementById("menuStars");
-  if(currentUser){
-    const s = currentUser.stars ?? 0;
-    if(el) el.textContent = s;
-    if(ms) ms.textContent = s;
-  }
 }
 
 function checkExercise(topicId,exIndex){
@@ -1425,16 +1415,21 @@ function checkExercise(topicId,exIndex){
     }
   });
 
+  const status = document.getElementById("topicStatus");
   if(gained>0){
     currentUser.stars += gained;
     saveCurrent();
     updateTopStars();
-    alert(`Well done! You gained ${gained} star(s).`);
+    if(status){
+      status.textContent = `Well done! You gained ${gained} star(s).`;
+    }
   }else{
-    alert("No correct answers yet. Try again!");
+    if(status){
+      status.textContent = "No correct answers yet. Try again!";
+    }
   }
 }
-
+  
 /* ---------- TEACHER TABLE ---------- */
 
 function renderTeacherTable(){
