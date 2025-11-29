@@ -2,16 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>ENGLISH WITH AI BAYAN – Intermediate</title>
+  <title>ENGLISH WITH AI BAYAN – Beginner</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     :root{
-      /* бордовая тема */
-      --blue-main:#7b1b3a;
-      --blue-soft:#b23a5b;
+      --blue-main:#005b73;
+      --blue-soft:#008a9e;
       --gold:#ffd54f;
-      --bg:#f7f2f4;
-      --topicColor:#7b1b3a;
+      --bg:#f3f7fa;
+      --topicColor:#005b73;
     }
 
     *{
@@ -23,12 +22,12 @@
 
     body{
       background:var(--bg);
-      color:#321320;
+      color:#043042;
     }
 
     /* HEADER WITH GIRL LOGO */
     header{
-      background:linear-gradient(90deg,#7b1b3a,#b23a5b);
+      background:linear-gradient(90deg,#005b73,#008a9e);
       color:#fff;
       padding:10px 24px;
       display:flex;
@@ -89,7 +88,7 @@
       font-weight:600;
     }
     .muted{
-      color:#705768;
+      color:#607080;
       font-size:12px;
     }
 
@@ -102,14 +101,14 @@
       width:100%;
       padding:10px 12px;
       border-radius:10px;
-      border:1px solid #d7c2cf;
+      border:1px solid #c9d5df;
       margin-bottom:14px;
       font-size:14px;
     }
     .text-input:focus{
       outline:none;
       border-color:var(--blue-soft);
-      box-shadow:0 0 0 2px rgba(178,58,91,.2);
+      box-shadow:0 0 0 2px rgba(0,138,158,.2);
     }
 
     .btn{
@@ -128,16 +127,16 @@
       background:var(--blue-soft);
       color:#fff;
     }
-    .btn-primary:hover{background:#992449;}
+    .btn-primary:hover{background:#007487;}
     .btn-ghost{
-      background:#f4e4ec;
-      color:#5a1530;
+      background:#eef5f9;
+      color:var(--blue-main);
     }
-    .btn-ghost:hover{background:#e4c9d8;}
+    .btn-ghost:hover{background:#dde9f1;}
 
     .login-note{
       font-size:12px;
-      color:#705768;
+      color:#526675;
       margin-top:10px;
       line-height:1.4;
     }
@@ -169,9 +168,9 @@
       display:inline-block;
       padding:2px 6px;
       border-radius:999px;
-      background:#fde7f1;
+      background:#e3f2fd;
       font-size:11px;
-      color:#7b1b3a;
+      color:#005b73;
     }
 
     .top-row{
@@ -189,7 +188,7 @@
       gap:4px;
       padding:4px 8px;
       border-radius:999px;
-      background:#fff4e1;
+      background:#fff9e5;
       border:1px solid #ffe082;
       font-size:12px;
     }
@@ -207,9 +206,9 @@
 
     .topic-card{
       border-radius:12px;
-      border:1px solid #ecd6e1;
+      border:1px solid #dde5ee;
       padding:10px 12px;
-      background:#fdf6fa;
+      background:#f8fafc;
       cursor:pointer;
       transition:.15s;
       display:flex;
@@ -217,7 +216,7 @@
       gap:4px;
     }
     .topic-card:hover{
-      background:#f7e1ee;
+      background:#e3f2fd;
       transform:translateY(-1px);
     }
     .topic-card-title{
@@ -226,7 +225,7 @@
     }
     .topic-card-sub{
       font-size:11px;
-      color:#7a6070;
+      color:#607080;
     }
 
     /* AI PANEL (demo) */
@@ -253,14 +252,14 @@
     }
     .chat-note{
       font-size:11px;
-      color:#7a6070;
+      color:#607080;
     }
     .chat-box{
       flex:1;
       border-radius:10px;
-      border:1px solid #ecd6e1;
+      border:1px solid #dde5ee;
       padding:8px;
-      background:#fdf6fa;
+      background:#f8fafc;
       font-size:13px;
       overflow-y:auto;
     }
@@ -268,13 +267,13 @@
       margin-bottom:6px;
       line-height:1.4;
     }
-    .chat-msg strong{color:#7b1b3a;}
+    .chat-msg strong{color:#005b73;}
     #aiQuestion{
       width:100%;
       min-height:60px;
       resize:vertical;
       border-radius:10px;
-      border:1px solid #d7c2cf;
+      border:1px solid #c9d5df;
       padding:8px;
       font-size:13px;
       margin-top:4px;
@@ -282,7 +281,7 @@
     #aiQuestion:focus{
       outline:none;
       border-color:var(--blue-soft);
-      box-shadow:0 0 0 2px rgba(178,58,91,.17);
+      box-shadow:0 0 0 2px rgba(0,138,158,.17);
     }
     .chat-actions{
       display:flex;
@@ -298,7 +297,7 @@
     .topic-header{
       border-radius:16px 16px 0 0;
       padding:14px 16px;
-      background:linear-gradient(90deg,var(--topicColor),#b23a5b);
+      background:linear-gradient(90deg,var(--topicColor),#007d99);
       color:#fff;
       display:flex;
       justify-content:space-between;
@@ -350,7 +349,7 @@
     }
 
     .grammar-box{
-      background:#fdf2f7;
+      background:#f7fbff;
       border-left:4px solid var(--topicColor);
       padding:10px 12px;
       border-radius:10px;
@@ -358,10 +357,10 @@
       font-size:14px;
       line-height:1.5;
     }
-    .grammar-box strong{color:#7b1b3a;}
+    .grammar-box strong{color:#005b73;}
     .formula{
       font-family:"Consolas","Courier New",monospace;
-      background:#f7d7e6;
+      background:#e3f2fd;
       padding:3px 6px;
       border-radius:6px;
       margin-right:4px;
@@ -379,7 +378,7 @@
     .grammar-ru{
       margin-top:10px;
       font-size:13px;
-      color:#3b202d;
+      color:#24313f;
     }
 
     .exercises{
@@ -387,10 +386,10 @@
     }
     .exercise-block{
       border-radius:12px;
-      background:#fdf6fa;
+      background:#f8fafc;
       padding:10px 12px;
       margin-bottom:10px;
-      border:1px solid #ecd6e1;
+      border:1px solid #dde5ee;
     }
     .exercise-title{
       font-size:14px;
@@ -417,7 +416,7 @@
     .options label{
       background:#ffffff;
       border-radius:999px;
-      border:1px solid #dec1d1;
+      border:1px solid #ccd7e3;
       padding:2px 8px;
       cursor:pointer;
       display:inline-flex;
@@ -444,7 +443,7 @@
     }
     .exercise-footer small{
       font-size:11px;
-      color:#7a6070;
+      color:#607080;
     }
 
     /* TEACHER */
@@ -467,13 +466,13 @@
       margin-top:10px;
     }
     th,td{
-      border:1px solid #ecd6e1;
+      border:1px solid #dde5ee;
       padding:6px 8px;
       text-align:left;
       white-space:nowrap;
     }
     th{
-      background:#f4e4ec;
+      background:#eef5f9;
       font-weight:600;
     }
 
@@ -503,7 +502,7 @@
     <img src="logo.png" alt="AI Bayan" class="logo-img">
     <div class="brand-text">
       <h1>ENGLISH WITH AI BAYAN</h1>
-      <span>Intermediate · 20 grammar topics</span>
+      <span>Beginner · stars · interactive topics</span>
     </div>
   </div>
   <div class="top-info" id="topInfo">Not logged in</div>
@@ -529,7 +528,6 @@
     </div>
 
     <div id="loginError" class="error hidden"></div>
-    <!-- Подсказки PIN убраны -->
   </section>
 
   <!-- MAIN MENU (STUDENT) -->
@@ -537,7 +535,7 @@
     <section class="card">
       <div class="top-row">
         <div>
-          <h2 class="section-title" style="margin-bottom:4px;">Intermediate grammar topics</h2>
+          <h2 class="section-title" style="margin-bottom:4px;">Beginner topics</h2>
           <div id="menuInfo" class="muted"></div>
         </div>
         <div>
@@ -578,7 +576,7 @@
     </aside>
   </section>
 
-  <!-- TOPIC SCREEN -->
+    <!-- TOPIC SCREEN -->
   <section id="topicScreen" class="hidden">
     <div class="topic-header">
       <div class="topic-header-main">
@@ -612,13 +610,13 @@
     <div class="table-wrapper">
       <table id="teacherTable">
         <thead>
-          <tr>
-            <th>Class</th>
-            <th>Code</th>
-            <th>Name</th>
-            <th>Stars</th>
-            <th>Last login</th>
-          </tr>
+        <tr>
+          <th>Class</th>
+          <th>Code</th>
+          <th>Name</th>
+          <th>Stars</th>
+          <th>Last login</th>
+        </tr>
         </thead>
         <tbody></tbody>
       </table>
@@ -654,26 +652,26 @@ function getClassByCode(num){
 /* ---------- TOPIC COLORS ---------- */
 
 const topicColors = {
-  1:"#8e2042",
-  2:"#a02c52",
-  3:"#6a1b3a",
-  4:"#ad314f",
-  5:"#7b274a",
-  6:"#9c335a",
-  7:"#66243a",
-  8:"#b63b63",
-  9:"#5b2134",
-  10:"#8a2c4c",
-  11:"#7d204a",
-  12:"#a9325f",
-  13:"#6d1e3c",
-  14:"#b9406a",
-  15:"#7a2945",
-  16:"#8e3252",
-  17:"#5f1731",
-  18:"#a83b5e",
-  19:"#742142",
-  20:"#c24870"
+  1: "#FF7A00",  // оранжевый
+  2: "#FF2400",  // красный алый
+  3: "#2ECC71",  // зеленый
+  4: "#FF00A8",  // фуксия
+  5: "#8B4513",  // коричневый
+  6: "#007BFF",  // синий
+  7: "#FFD500",  // желтый
+  8: "#006D77",  // темно бирюзовый
+  9: "#800020",  // бордовый
+  10:"#C7F000",  // лайм
+  11:"#9D4EDD",  // фиолетовый
+  12:"#FF6F61",  // коралловый
+  13:"#009B77",  // изумрудный
+  14:"#E2725B",  // терракотовый
+  15:"#4A4A4A",  // темно серый
+  16:"#4C5866",  // маренго
+  17:"#0A5C5A",  // мурена
+  18:"#8E4585",  // сливовый
+  19:"#0B6623",  // темно-зеленый
+  20:"#B22222"   // кирпичный
 };
 
 /* ---------- TOPICS DATA (1–20) ---------- */
@@ -2766,9 +2764,9 @@ function buildMainMenu(){
   topics.forEach(t=>{
     const div = document.createElement("div");
     div.className = "topic-card";
-    const color = topicColors[t.id] || "#7b1b3a";
+    const color = topicColors[t.id] || "#005b73";
     div.style.borderColor = color+"55";
-    div.style.background = "#fdf6fa";
+    div.style.background = "#f8fafc";
     div.innerHTML = `
       <div class="topic-card-title">${t.id}. ${t.title}</div>
       <div class="topic-card-sub">${t.level}</div>
@@ -2782,7 +2780,7 @@ function buildMainMenu(){
   chat.innerHTML = "";
   const msg = document.createElement("div");
   msg.className = "chat-msg";
-  msg.textContent = "AI Bayan chat will be available later. Now use topics and explanations.";
+  msg.textContent = "AI Bayan chat will be available later. Now use topics and exercises.";
   chat.appendChild(msg);
   document.getElementById("aiLimit").textContent = "· demo mode";
 }
@@ -2794,7 +2792,7 @@ function openTopic(id){
   const t = topics.find(x=>x.id===id);
   if(!t) return;
 
-  const color = topicColors[id] || "#7b1b3a";
+  const color = topicColors[id] || "#005b73";
   document.documentElement.style.setProperty("--topicColor",color);
 
   document.getElementById("topicHeaderTitle").textContent = `${id}. ${t.title}`;
@@ -2815,10 +2813,10 @@ function openTopic(id){
         : ""
     }
     ${
-      t.ruleRu
+      t.ruleRu || t.usageRu
         ? `<div class="grammar-ru">
              <strong>Правило (RU):</strong><br>
-             ${t.ruleRu}
+             ${t.ruleRu||""}<br>${t.usageRu||""}
            </div>`
         : ""
     }
@@ -2865,19 +2863,17 @@ function openTopic(id){
 
         const opts = document.createElement("div");
         opts.className = "options";
-        if(q.options && q.options.length){
-          q.options.forEach((opt,optIndex)=>{
-            const label = document.createElement("label");
-            const radio = document.createElement("input");
-            radio.type = "radio";
-            const gname = `t${id}_e${exIndex}_q${qIndex}`;
-            radio.name = gname;
-            radio.value = optIndex;
-            label.appendChild(radio);
-            label.appendChild(document.createTextNode(" "+opt));
-            opts.appendChild(label);
-          });
-        }
+        q.options.forEach((opt,optIndex)=>{
+          const label = document.createElement("label");
+          const radio = document.createElement("input");
+          radio.type = "radio";
+          const gname = `t${id}_e${exIndex}_q${qIndex}`;
+          radio.name = gname;
+          radio.value = optIndex;
+          label.appendChild(radio);
+          label.appendChild(document.createTextNode(" "+opt));
+          opts.appendChild(label);
+        });
         row.appendChild(opts);
 
         const mark = document.createElement("span");
@@ -2903,19 +2899,8 @@ function openTopic(id){
       wrapper.appendChild(block);
     });
     ec.appendChild(wrapper);
-
-    // 🔒 Уже решённые этим учеником упражнения блокируем сразу
-    if(currentUser){
-      t.exercises.forEach((ex, exIndex)=>{
-        const key = `done_t${id}_e${exIndex}_code${currentUser.code}`;
-        if(localStorage.getItem(key) === "1"){
-          disableExercise(id, exIndex);
-        }
-      });
-    }
   }
 
-  document.getElementById("topicStatus").textContent = "";
   showOnly("topicScreen");
 }
 
@@ -2929,31 +2914,18 @@ function backToMenu(){
 }
 
 function printCurrentTopic(){
+  // Кнопка печати есть только внутри темы,
+  // поэтому просто запускаем печать
   if(!currentTopicId) return;
   window.print();
 }
 
-/* ---------- CHECK EXERCISE (ONE ATTEMPT) ---------- */
-
-function checkExercise(topicId, exIndex){
+function checkExercise(topicId,exIndex){
   if(!currentUser) return;
-
   const t = topics.find(x=>x.id===topicId);
   if(!t) return;
   const ex = t.exercises[exIndex];
   if(!ex) return;
-
-  const key = `done_t${topicId}_e${exIndex}_code${currentUser.code}`;
-
-  // Уже решал — просто блокируем и пишем сообщение
-  if(localStorage.getItem(key) === "1"){
-    const statusAlready = document.getElementById("topicStatus");
-    if(statusAlready){
-      statusAlready.textContent = "You have already completed this exercise.";
-    }
-    disableExercise(topicId, exIndex);
-    return;
-  }
 
   let gained = 0;
   ex.questions.forEach((q,qIndex)=>{
@@ -2979,55 +2951,21 @@ function checkExercise(topicId, exIndex){
     }
   });
 
-  // Помечаем, что это упражнение для этого кода уже завершено
-  localStorage.setItem(key, "1");
-
   const status = document.getElementById("topicStatus");
   if(gained>0){
     currentUser.stars += gained;
     saveCurrent();
     updateTopStars();
     if(status){
-      status.textContent = `Exercise completed. You gained ${gained} star(s).`;
+      status.textContent = `Well done! You gained ${gained} star(s).`;
     }
   }else{
     if(status){
-      status.textContent = "Exercise completed. No correct answers.";
-    }
-  }
-
-  // Блокируем дальше
-  disableExercise(topicId, exIndex);
-}
-
-/* ---------- DISABLE EXERCISE (RADIO + BUTTON) ---------- */
-
-function disableExercise(topicId, exIndex){
-  const t = topics.find(x=>x.id===topicId);
-  if(!t) return;
-  const ex = t.exercises[exIndex];
-  if(!ex) return;
-
-  // Отключаем радиокнопки этого упражнения
-  ex.questions.forEach((q,qIndex)=>{
-    const gname = `t${topicId}_e${exIndex}_q${qIndex}`;
-    const inputs = document.querySelectorAll(`input[name="${gname}"]`);
-    inputs.forEach(inp => inp.disabled = true);
-  });
-
-  // Отключаем кнопку "Check" только у этого блока
-  const blocks = document.querySelectorAll("#topicExercisesContainer .exercise-block");
-  const block = blocks[exIndex];
-  if(block){
-    const btn = block.querySelector("button");
-    if(btn){
-      btn.disabled = true;
-      btn.style.opacity = "0.6";
-      btn.style.cursor = "not-allowed";
+      status.textContent = "No correct answers yet. Try again!";
     }
   }
 }
-
+  
 /* ---------- TEACHER TABLE ---------- */
 
 function renderTeacherTable(){
@@ -3076,22 +3014,17 @@ function renderTeacherTable(){
   });
 }
 
-/* ---------- INIT & STARS ---------- */
+/* ---------- INIT ---------- */
 
-function updateTopStars() {
-  if (!currentUser) return;
-  const topStarsEl = document.getElementById("topStars");
-  if (topStarsEl) {
-    topStarsEl.textContent = currentUser.stars;
-  }
-  const menuStarsEl = document.getElementById("menuStars");
-  if (menuStarsEl) {
-    menuStarsEl.textContent = currentUser.stars;
-  }
-}
-
-// стартуем с экрана логина
 showOnly("loginScreen");
+  /* ----------- FIX: ADD updateTopStars FUNCTION ----------- */
+function updateTopStars() {
+  const topStars = document.getElementById("topStars");
+  if (!topStars) return;
+
+  const stars = localStorage.getItem("stars") || 0;
+  topStars.textContent = "Stars: " + stars;
+}
 </script>
 </body>
-</html> 
+</html>
