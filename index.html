@@ -2794,6 +2794,15 @@ function openTopic(id){
 
   const color = topicColors[id] || "#005b73";
   document.documentElement.style.setProperty("--topicColor",color);
+    // 🔒 Если ученик уже решал какие-то упражнения в этой теме – блокируем их
+    if(currentUser && t.exercises && t.exercises.length){
+      t.exercises.forEach((ex, idx)=>{
+        const key = `done_beginner_t${id}_e${idx}_code${currentUser.code}`;
+        if(localStorage.getItem(key) === "1"){
+          disableExercise(id, idx);
+        }
+      });
+    }
 
   document.getElementById("topicHeaderTitle").textContent = `${id}. ${t.title}`;
   document.getElementById("topicHeaderTag").innerHTML =
@@ -2920,12 +2929,26 @@ function printCurrentTopic(){
   window.print();
 }
 
-function checkExercise(topicId,exIndex){
+function checkExercise(topicId, exIndex){
   if(!currentUser) return;
+
   const t = topics.find(x=>x.id===topicId);
   if(!t) return;
   const ex = t.exercises[exIndex];
   if(!ex) return;
+
+  // 🔑 уникальный ключ: БЕГИННЕР + тема + упражнение + код ученика
+  const key = `done_beginner_t${topicId}_e${exIndex}_code${currentUser.code}`;
+
+  // 🛑 если уже решал – не даём ещё раз
+  if(localStorage.getItem(key) === "1"){
+    const statusAlready = document.getElementById("topicStatus");
+    if(statusAlready){
+      statusAlready.textContent = "You have already completed this exercise.";
+    }
+    disableExercise(topicId, exIndex);
+    return;
+  }
 
   let gained = 0;
   ex.questions.forEach((q,qIndex)=>{
@@ -2951,17 +2974,48 @@ function checkExercise(topicId,exIndex){
     }
   });
 
+  // 📌 помечаем, что это упражнение уже сделано этим учеником
+  localStorage.setItem(key, "1");
+
   const status = document.getElementById("topicStatus");
   if(gained>0){
     currentUser.stars += gained;
     saveCurrent();
     updateTopStars();
     if(status){
-      status.textContent = `Well done! You gained ${gained} star(s).`;
+      status.textContent = `Exercise completed. You gained ${gained} star(s).`;
     }
   }else{
     if(status){
-      status.textContent = "No correct answers yet. Try again!";
+      status.textContent = "Exercise completed. No correct answers.";
+    }
+  }
+
+  // 🔒 сразу блокируем
+  disableExercise(topicId, exIndex);
+}
+function disableExercise(topicId, exIndex){
+  const t = topics.find(x=>x.id===topicId);
+  if(!t) return;
+  const ex = t.exercises[exIndex];
+  if(!ex) return;
+
+  // 🚫 Отключаем радиокнопки именно этого упражнения
+  ex.questions.forEach((q,qIndex)=>{
+    const gname = `t${topicId}_e${exIndex}_q${qIndex}`;
+    const inputs = document.querySelectorAll(`input[name="${gname}"]`);
+    inputs.forEach(inp => inp.disabled = true);
+  });
+
+  // 🚫 Отключаем кнопку "Check" только у этого блока
+  const blocks = document.querySelectorAll("#topicExercisesContainer .exercise-block");
+  const block = blocks[exIndex];
+  if(block){
+    const btn = block.querySelector("button");
+    if(btn){
+      btn.disabled = true;
+      btn.style.opacity = "0.6";
+      btn.style.cursor = "not-allowed";
     }
   }
 }
